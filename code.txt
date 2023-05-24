@@ -1,0 +1,20 @@
+ Node CPU and memory usage. — 
+For system node CPU usage, we can use linux command sar, vmstat, top and mpstat to collect
+For system MEM usage, we can use top, vmstat, free.
+For Cassandra heap memory usage we can use nodeool info to check the heap and off-heap mem usage
+
+ Read and write latencies
+For system node on linux we can use iostat
+For Cassandra node we can use nodetool tablehistograms and nodetool tablestats. Or we can use Cassandra JMX beans
+
+ Number of pending compactions
+nodetool tpstats to see  number of pending compactions in the queue and number of completed. Also nodetool compactionstats to see the total and completed currently
+
+
+Number of active connections
+I used lsof -i:9042 -i:9160 | grep ESTABLISHED to list all connection on the node
+ 
+Storage space utilization
+df -h and 
+du -h —max-depth <ks_folder> for individual folders associated to keyspace and tables 
+ 
